@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.east.cloud.mybatisplus.mapper.StudentMapper">
+
+
+    <!--    &lt;!&ndash; 查询数据 &ndash;&gt;-->
+    <!--    <select id="getStudents"  resultType="java.util.Map">-->
+    <!--         SELECT-->
+    <!--        ID, NAME, AGE, SEX, date_format(-->
+    <!--        INPUT_DATE,-->
+    <!--        '%Y-%c-%d %h:%i:%s'-->
+    <!--        ) inputDate-->
+    <!--        FROM student-->
+    <!--        <where>-->
+    <!--            <if test="age != null and age != ''">-->
+    <!--                and age=#{age}-->
+    <!--            </if>-->
+    <!--            <if test="name != null and name != ''">-->
+    <!--                and name=#{name}-->
+    <!--            </if>-->
+    <!--        </where>-->
+    <!--    </select>-->
+    <!--    &lt;!&ndash; 查询数据 &ndash;&gt;-->
+    <!--    <select id="getStudents1"  resultType="java.util.Map">-->
+    <!--         SELECT-->
+    <!--        ID, NAME, AGE, SEX, date_format(-->
+    <!--        INPUT_DATE,-->
+    <!--        '%Y-%c-%d %h:%i:%s'-->
+    <!--        ) inputDate-->
+    <!--        FROM student-->
+    <!--       <where>-->
+    <!--           <if test="age != null and age != ''">-->
+    <!--               age=#{age}-->
+    <!--           </if>-->
+    <!--       </where>-->
+    <!--    </select>-->
+
+    <!-- 查询数据 -->
+    <select id="getStudents2" parameterType="java.util.Map" resultType="java.util.Map">
+        SELECT
+        ID, NAME, AGE, SEX, date_format(
+        INPUT_DATE,
+        '%Y-%c-%d %h:%i:%s'
+        ) inputDate
+        FROM student
+        where 1=1
+        <if test="age != null">
+            and AGE=#{age}
+        </if>
+    </select>
+    <!-- 查询数据 -->
+<!--    <select id="getStudents2" parameterType="java.util.Map" resultType="java.util.Map">-->
+<!--        SELECT ID, pid, sort, name FROM cloud_cms_class-->
+<!--        where 1=1-->
+<!--        <if test="name != null">-->
+<!--            and NAME=#{name}-->
+<!--        </if>-->
+<!--    </select>-->
+</mapper>
